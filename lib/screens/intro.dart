@@ -18,17 +18,23 @@ class _IntroScreenState extends State<IntroScreen> {
 
     slides.add(
       new Slide(
-        title: "ERASER",
+        title: "CHOOSE YOUR LOCATION",
+        styleTitle: TextStyle(
+          color: Colors.black87,
+          fontSize: 20.0,
+          fontWeight: FontWeight.bold,
+        ),
+        textAlignTitle: TextAlign.right,
         description: "Allow miles wound place the leave had. To sitting subject no improve studied limited",
-        pathImage: "images/photo_eraser.png",
-        backgroundColor: Color(0xfff5a623),
+        pathImage: "images/1.jpeg",
+        backgroundColor: Colors.white,
       ),
     );
     slides.add(
       new Slide(
-        title: "PENCIL",
+        title: "CHOOSE YOUR LOCATION",
         description: "Ye indulgence unreserved connection alteration appearance",
-        pathImage: "images/photo_pencil.png",
+        pathImage: "images/2.jpeg",
         backgroundColor: Color(0xff203152),
       ),
     );
@@ -37,7 +43,7 @@ class _IntroScreenState extends State<IntroScreen> {
         title: "RULER",
         description:
         "Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of",
-        pathImage: "images/photo_ruler.png",
+        pathImage: "images/3.jpeg",
         backgroundColor: Color(0xff9932CC),
       ),
     );

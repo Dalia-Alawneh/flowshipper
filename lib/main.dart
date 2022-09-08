@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
             appBarTheme: AppBarTheme(
                 iconTheme: IconThemeData(color: Colors.black87)
         )),
-      home: Languages(),
+      home: Welcome(),
     );
   }
 }
