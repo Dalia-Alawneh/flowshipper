@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'screens/welcome.dart';
-
+import 'screens/languages.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -13,7 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Welcome(),
+      debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            appBarTheme: AppBarTheme(
+                iconTheme: IconThemeData(color: Colors.black87)
+        )),
+      home: Languages(),
     );
   }
 }
