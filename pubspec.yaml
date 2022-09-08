@@ -22,6 +22,8 @@ dev_dependencies:
 
 
   flutter_lints: ^2.0.0
+  font_awesome_flutter: ^10.1.0
+  intro_slider: ^3.0.10
 
 flutter:
 
