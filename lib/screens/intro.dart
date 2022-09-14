@@ -1,3 +1,4 @@
+import 'package:flowshipper/screens/register.dart';
 import 'package:flowshipper/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
@@ -130,7 +131,7 @@ class _IntroScreenState extends State<IntroScreen>{
             key: _key,
             onSubmit: () {
               Navigator.push(context, MaterialPageRoute(builder: (context){
-                return Welcome();
+                return Register();
               }));
               Future.delayed(
                 Duration(seconds: 1),
