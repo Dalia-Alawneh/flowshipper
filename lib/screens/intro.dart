@@ -17,6 +17,7 @@ class _IntroScreenState extends State<IntroScreen> {
     super.initState();
 
     slides.add(
+
       new Slide(
         title: "CHOOSE YOUR LOCATION",
         styleTitle: TextStyle(
@@ -24,7 +25,7 @@ class _IntroScreenState extends State<IntroScreen> {
           fontSize: 20.0,
           fontWeight: FontWeight.bold,
         ),
-        textAlignTitle: TextAlign.right,
+        textAlignTitle: TextAlign.left,
         description: "Allow miles wound place the leave had. To sitting subject no improve studied limited",
         pathImage: "images/1.jpeg",
         backgroundColor: Colors.white,
