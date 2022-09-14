@@ -24,11 +24,12 @@ class _LoginState extends State<Login> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          // Text('Login to access to our services',
-          //   style: TextStyle(
-          //       fontSize: 25,
-          //       fontWeight: FontWeight.bold
-          //   ),),
+          Text('Sign in to access to our services',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold
+            ),),
           Form(
               key: _formKey,
               child: Column(
@@ -41,11 +42,14 @@ class _LoginState extends State<Login> {
                           fontFamily: 'Montserrat-Bold'
                       ),
                       decoration: InputDecoration(
+                        focusColor: Color(0xffD8B261),
+                        hintStyle: TextStyle(color: Color(0xffD8B261)),
                         errorStyle: TextStyle(
                             fontSize: 14.0,
                             fontFamily: 'Montserrat-Bold'
                         ),
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25)),
                         hintText: 'Enter your Email',
                       ),
                       onChanged: (value){
@@ -80,17 +84,20 @@ class _LoginState extends State<Login> {
                       },
                       obscureText: _isObscure,
                       decoration: InputDecoration(
+                          focusColor: Color(0xffD8B261),
+                          hintStyle: TextStyle(color: Color(0xffD8B261)),
                           errorStyle: TextStyle(
                               fontSize: 14.0,
                               fontFamily: 'Montserrat-Bold'
                           ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25)),
                           hintText: 'Enter your Password',
-                          border: OutlineInputBorder(),
                           suffixIcon: IconButton(
                               icon:
                               Icon(
                                 _isObscure ? Icons.visibility : Icons.visibility_off,
-                                color: Color(0xff55ddee),
+                                color: Color(0xffD8B261),
                               ),
                               onPressed: () {
                                 setState(() {
@@ -126,7 +133,7 @@ class _LoginState extends State<Login> {
                             // fontWeight: FontWeight.bold,
                             fontFamily: 'Montserrat-bold',
                             fontSize: 16,
-                            color: Color(0xff45ddee),
+                            color: Color(0xffD8B261),
                           ),),
                       )
                     ],
@@ -134,7 +141,7 @@ class _LoginState extends State<Login> {
                   Container(
                     margin: EdgeInsets.only(top: 15),
                     decoration: BoxDecoration(
-                        color: Color(0xff45ddee),
+                        color: Color(0xffD8B261),
                         borderRadius: BorderRadius.circular(30)
                     ),
                     child: TextButton(
@@ -191,9 +198,9 @@ class _MyStatefulWidgetState extends State<CheckBox> {
         MaterialState.focused,
       };
       if (states.any(interactiveStates.contains)) {
-        return Colors.blue;
+        return Color(0xffD8B261);
       }
-      return Color(0xff55ddee);
+      return Color(0xffD8B261);
     }
 
     return Checkbox(

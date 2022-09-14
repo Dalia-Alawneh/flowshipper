@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
               titleTextStyle: TextStyle(color:Colors.black54,fontSize: 20, fontWeight: FontWeight.bold),
                 iconTheme: IconThemeData(color: Colors.black87)
         )),
-      home: Register(),
+      home: Welcome(),
     );
   }
 }

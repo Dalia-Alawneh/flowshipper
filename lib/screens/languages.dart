@@ -1,3 +1,4 @@
+import 'package:flowshipper/screens/intro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class Languages extends StatelessWidget {
@@ -55,7 +56,7 @@ class ChooseLang extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: (){
-
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>IntroScreen()));
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
