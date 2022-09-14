@@ -1,4 +1,4 @@
-import 'package:flowshipper/screens/welcome.dart';
+import 'package:flowshipper/screens/register.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:slide_to_act/slide_to_act.dart';
@@ -13,7 +13,6 @@ class IntroScreen extends StatefulWidget {
 
 class _IntroScreenState extends State<IntroScreen>{
 
-  final GlobalKey<SlideActionState> _key = GlobalKey();
   List<Slide> slides = [];
 
   @override
@@ -123,25 +122,28 @@ class _IntroScreenState extends State<IntroScreen>{
               showDoneBtn: false,
           ),
             ),
-            Padding(
-          padding: EdgeInsets.only(bottom: 25, left: 25, right: 25),
-          child: SlideAction(
-            text: "Create Account",
-            key: _key,
-            onSubmit: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return Welcome();
-              }));
-              Future.delayed(
-                Duration(seconds: 1),
-                    () => _key.currentState?.reset(),
-              );
-            },
-            innerColor: Colors.white,
-            outerColor: Colors.black,
-          ),
-        ),
-            ],
+        Builder(
+        builder: (context) {
+          final GlobalKey<SlideActionState> _key = GlobalKey();
+          return Padding(
+            padding: EdgeInsets.only(bottom: 25, left: 25, right: 25),
+            child: SlideAction(
+              text: "Create Account",
+              key: _key,
+              onSubmit: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Register();
+                }));
+                Future.delayed(
+                  Duration(seconds: 1),
+                      () => _key.currentState?.reset(),
+                );
+              },
+              innerColor: Colors.white,
+              outerColor: Colors.black,
+            ),
+          );
+        }),],
           ),
       ),
     );

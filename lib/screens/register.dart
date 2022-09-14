@@ -15,11 +15,13 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final _auth = FirebaseAuth.instance;
   final controller = TextEditingController();
   final fierStore = FirebaseFirestore.instance;
-  final _auth = FirebaseAuth.instance;
   late String email, pass;
-  late String firstName, lastName;
+  TextEditingController _firstNameController = TextEditingController();
+  TextEditingController _lastNameController = TextEditingController();
+  // late String firstName, lastName;
   late String phone;
   bool _isObscure=true;
   bool _confirmObscure=true;
@@ -128,9 +130,8 @@ class _RegisterState extends State<Register> {
        // )
       Form(
           key: _formKey,
-          child: Column(
-
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: ListView(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text("Create an account",
                 style: TextStyle(
@@ -166,7 +167,7 @@ class _RegisterState extends State<Register> {
                         //     return null;
                         // },
                         onChanged: (value){
-                          firstName = value;
+                          _firstNameController = value as TextEditingController;
                         },
                       ),
                     ),
@@ -195,7 +196,7 @@ class _RegisterState extends State<Register> {
                         //     return null;
                         // },
                           onChanged: (value){
-                            lastName = value;
+                            _lastNameController = value as TextEditingController;
                           }
                       ),
                     ),
@@ -345,14 +346,15 @@ class _RegisterState extends State<Register> {
                     try{
                       final user = await _auth.createUserWithEmailAndPassword(email: email, password: pass);
                       if(_formKey.currentState!.validate() && user != null){
-                        fierStore.collection('users').add({
-                          'firstName': firstName,
-                          'lastName': lastName,
+                        FirebaseFirestore.instance.collection("users").add({
+                          'firstName': _firstNameController.text,
+                          'lastName': _lastNameController.text,
                           'email' : email,
                           'phone' :phone,
-                          'password' : pass
+                          'password' : pass,
+                        }).then((value) {print(value.id);
                         });
-                        print(phone);
+                        // print(phone);
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Languages()));
                       }
                       // if(_formKey.currentState!.validate()){
