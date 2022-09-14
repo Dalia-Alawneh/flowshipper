@@ -3,6 +3,9 @@ import 'package:flowshipper/screens/languages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:slide_to_act/slide_to_act.dart';
+
+
 
 class Welcome extends StatelessWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -41,6 +44,7 @@ class Welcome extends StatelessWidget {
                     color: Colors.white,
                   ),),),
                 ),
+
               ],
             ),
           ),
