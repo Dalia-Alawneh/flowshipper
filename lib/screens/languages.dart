@@ -9,11 +9,7 @@ class Languages extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: BackButtonIcon(),
-        title: Text('Choose Language',
-        style: TextStyle(
-            color:Colors.black54
-        ),
-        ),
+        title: Text('Choose Language'),
       ),
       body:  Padding(
         padding: const EdgeInsets.only(top: 30),
