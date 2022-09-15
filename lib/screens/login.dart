@@ -1,6 +1,8 @@
 import 'package:flowshipper/screens/languages.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dotted_border/dotted_border.dart';
+
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
@@ -37,33 +39,39 @@ class _LoginState extends State<Login> {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    child: TextFormField(
-                      style: TextStyle(
-                          fontFamily: 'Montserrat-Bold'
-                      ),
-                      decoration: InputDecoration(
-                        focusColor: Color(0xffD8B261),
-                        hintStyle: TextStyle(color: Color(0xffD8B261)),
-                        errorStyle: TextStyle(
-                            fontSize: 14.0,
+                    child: DottedBorder(
+                      borderType: BorderType.RRect,
+                        radius: Radius.circular(25),
+                        padding: EdgeInsets.only(left: 20, right: 20, top:6, bottom: 6),
+                      color: Colors.grey,
+                      dashPattern: [10,5,10,5,10,5],
+                      child: TextFormField(
+                        style: TextStyle(
                             fontFamily: 'Montserrat-Bold'
                         ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25)),
-                        hintText: 'Enter your Email',
+                        decoration: InputDecoration(
+                          focusColor: Color(0xffD8B261),
+                          hintStyle: TextStyle(color: Colors.black87),
+                          errorStyle: TextStyle(
+                              fontSize: 14.0,
+                              fontFamily: 'Montserrat-Bold'
+                          ),
+                          border: InputBorder.none,
+                          hintText: 'Enter your Email',
+                        ),
+                        onChanged: (value){
+                          email = value;
+                        },
+                        validator: (value){
+                          // email = value!;
+                          if(value!.isEmpty){
+                            return "email is required";
+                          }else if(!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)){
+                            return "Please Enter a correct email";
+                          }else
+                            return null;
+                        },
                       ),
-                      onChanged: (value){
-                        email = value;
-                      },
-                      validator: (value){
-                        // email = value!;
-                        if(value!.isEmpty){
-                          return "email is required";
-                        }else if(!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)){
-                          return "Please Enter a correct email";
-                        }else
-                          return null;
-                      },
                     ),
                   ),
                   Padding(

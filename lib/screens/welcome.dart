@@ -34,7 +34,7 @@ class Welcome extends StatelessWidget {
                   width: 200.0,
                   height: 60.0,
                   child: OutlinedButton(onPressed:(){ Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return IntroScreen();
+                    return Languages( );
                   }));},
                     style: OutlinedButton.styleFrom(
                       shape:StadiumBorder(),

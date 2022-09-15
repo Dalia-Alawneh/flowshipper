@@ -1,5 +1,7 @@
+import 'package:flowshipper/screens/code_screen.dart';
 import 'package:flowshipper/screens/login.dart';
 import 'package:flowshipper/screens/register.dart';
+import 'package:flowshipper/screens/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
               titleTextStyle: TextStyle(color:Colors.black54,fontSize: 20, fontWeight: FontWeight.bold),
                 iconTheme: IconThemeData(color: Colors.black87)
         )),
-      home: Welcome(),
+      home: CodeScreen(),
     );
   }
 }
