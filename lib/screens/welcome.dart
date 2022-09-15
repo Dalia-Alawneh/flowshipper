@@ -3,7 +3,6 @@ import 'package:flowshipper/screens/languages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:slide_to_act/slide_to_act.dart';
 
 
 
@@ -35,7 +34,7 @@ class Welcome extends StatelessWidget {
                   width: 200.0,
                   height: 60.0,
                   child: OutlinedButton(onPressed:(){ Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return Languages();
+                    return Languages( );
                   }));},
                     style: OutlinedButton.styleFrom(
                       shape:StadiumBorder(),
