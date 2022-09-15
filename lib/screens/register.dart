@@ -5,7 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:dotted_border/dotted_border.dart';
+import 'tapscreen.dart';
 import 'languages.dart';
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -25,14 +26,14 @@ class _RegisterState extends State<Register> {
   bool _confirmObscure=true;
   final GlobalKey<FormState> _formKey= GlobalKey<FormState>();
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          // backgroundColor: Colors.white,
-          leading:BackButtonIcon(),
-          title: Text('Register'),
-        ),
-        body:
+    return
     //Column(
        //   children: [
        //     Padding(
@@ -133,16 +134,6 @@ class _RegisterState extends State<Register> {
             child: ListView(
 
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 50, bottom: 25),
-                  child: Text("Create an account",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold
-                    ),
-                  ),
-                ),
                 Container(
                   child: Column(
                     children: [
@@ -151,22 +142,27 @@ class _RegisterState extends State<Register> {
                         children: <Widget>[
                           Flexible(
                             child: Padding(
-                              padding: EdgeInsets.fromLTRB(20, 0, 10, 0),
-                              child: TextFormField(
-
-                                style: TextStyle(
-                                    fontFamily: 'Montserrat-Bold'
-                                ),
-                                decoration: InputDecoration(
-                                  focusColor: Color(0xffD8B261),
-                                  hintStyle: TextStyle(color: Color(0xffD8B261)),
-                                  errorStyle: TextStyle(
-                                      fontSize: 14.0,
+                              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                              child: DottedBorder(
+                                borderType: BorderType.RRect,
+                                radius: Radius.circular(25),
+                                padding: EdgeInsets.only(left: 20, right: 20, top:6, bottom: 6),
+                                color: Colors.grey,
+                                dashPattern: [10,5,10,5,10,5],
+                                child: TextFormField(
+                                  keyboardType: TextInputType.emailAddress,
+                                  style: TextStyle(
                                       fontFamily: 'Montserrat-Bold'
                                   ),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25)),
-                                  hintText: 'First name',
+                                  decoration: InputDecoration(
+                                    focusColor: Color(0xffD8B261),
+                                    hintStyle: TextStyle(color: Colors.black38),
+                                    errorStyle: TextStyle(
+                                        fontSize: 14.0,
+                                        fontFamily: 'Montserrat-Bold'
+                                    ),
+                                    border: InputBorder.none,
+                                    hintText: 'First name',
                                 ),
                                 // validator: (value){
                                 //   if(value!.isEmpty){
@@ -181,23 +177,30 @@ class _RegisterState extends State<Register> {
                                 },
                               ),
                             ),
-                          ),
+                          ),),
                           Flexible(
                             child: Padding(
-                              padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                              child: TextFormField(
-                                  style: TextStyle(
-                                      fontFamily: 'Montserrat-Bold'
-                                  ),
-                                  decoration: InputDecoration(
-                                    hintStyle: TextStyle(color: Color(0xffD8B261)),
-                                    errorStyle: TextStyle(
-                                        fontSize: 14.0,
+                              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                              child: DottedBorder(
+                                borderType: BorderType.RRect,
+                                radius: Radius.circular(25),
+                                padding: EdgeInsets.only(left: 20, right: 20, top:6, bottom: 6),
+                                color: Colors.grey,
+                                dashPattern: [10,5,10,5,10,5],
+                                child: TextFormField(
+                                    keyboardType: TextInputType.emailAddress,
+                                    style: TextStyle(
                                         fontFamily: 'Montserrat-Bold'
                                     ),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(25)),
-                                    hintText: 'Last name',
+                                    decoration: InputDecoration(
+                                      focusColor: Color(0xffD8B261),
+                                      hintStyle: TextStyle(color: Colors.black38),
+                                      errorStyle: TextStyle(
+                                          fontSize: 14.0,
+                                          fontFamily: 'Montserrat-Bold'
+                                      ),
+                                      border: InputBorder.none,
+                                      hintText: 'Last name',
                                   ),
                                   // validator: (value){
                                   //   if(value!.isEmpty){
@@ -212,28 +215,31 @@ class _RegisterState extends State<Register> {
                                   }
                               ),
                             ),
-                          ),
+                          ),)
                         ],
                       ),
 
                       Padding(
-                        padding: EdgeInsets.fromLTRB(20, 20,20,0),
-                        child: TextFormField(
-                            style: TextStyle(
-                                fontFamily: 'Montserrat-Bold'
-                            ),
-                            decoration: InputDecoration(
-                              hintStyle: TextStyle(color: Color(0xffD8B261)),
-                              errorStyle: TextStyle(
-                                  fontSize: 14.0,
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        child: DottedBorder(
+                          borderType: BorderType.RRect,
+                          radius: Radius.circular(25),
+                          padding: EdgeInsets.only(left: 20, right: 20, top:6, bottom: 6),
+                          color: Colors.grey,
+                          dashPattern: [10,5,10,5,10,5],
+                          child: TextFormField(
+                              style: TextStyle(
                                   fontFamily: 'Montserrat-Bold'
                               ),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(25)),
-                              hintText: 'Enter your phone number',
+
+                              decoration: InputDecoration(
+                                focusColor: Colors.black38,
+                                prefixIcon: Icon(Icons.phone, size:20,color: Colors.black38,),
+                                hintStyle: TextStyle(color: Colors.black38),
+                                border: InputBorder.none,
+                                hintText: 'Phone number',
                             ),
-                            // validator: (value){
-                            //   if(value!.isEmpty){
+                            // validator: (value){//   if(value!.isEmpty){
                             //     return "Phone number is required";
                             //   }else if(!RegExp(r'^[0-9]+$').hasMatch(value)){
                             //     return "Please Enter a correct number";
@@ -244,84 +250,97 @@ class _RegisterState extends State<Register> {
                               phone = value;
                             }
                         ),
-                      ),
+                      ),),
                       Padding(
-                        padding: EdgeInsets.fromLTRB( 20,20, 20,0),
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          style: TextStyle(
-                              fontFamily: 'Montserrat-Bold'
-                          ),
-                          decoration: InputDecoration(
-                            hintStyle: TextStyle(color: Color(0xffD8B261)),
-                            errorStyle: TextStyle(
-                                fontSize: 14.0,
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        child: DottedBorder(
+                          borderType: BorderType.RRect,
+                          radius: Radius.circular(25),
+                          padding: EdgeInsets.only(left: 20, right: 20, top:6, bottom: 6),
+                          color: Colors.grey,
+                          dashPattern: [10,5,10,5,10,5],
+                          child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            style: TextStyle(
                                 fontFamily: 'Montserrat-Bold'
                             ),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25)),
-                            hintText: 'Enter your Email',
-                          ),
-                          onChanged: (value){
-                            email = value;
-                          },
-                          // validator: (value){
-                          //   // email = value!;
-                          //   if(value!.isEmpty){
-                          //     return "email is required";
-                          //   }else if(!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)){
-                          //     return "Please Enter a correct email";
-                          //   }else
-                          //     return null;
-                          // },
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                        child: TextFormField(
-                          style: TextStyle(
-                              fontFamily: 'Montserrat-Bold'
-                          ),
-                          onChanged: (value){
-                            pass = value;
-                          },
-                          // validator: (value){
-                          //   // pass = value!;
-                          //   if(value!.isEmpty){
-                          //     return "Password is required!";
-                          //   }else
-                          //     return null;
-                          // },
-                          obscureText: _isObscure,
-                          decoration: InputDecoration(
-                              hintStyle: TextStyle(color: Color(0xffD8B261)),
+                            decoration: InputDecoration(
+                              focusColor: Color(0xffD8B261),
+                              hintStyle: TextStyle(color: Colors.black38),
                               errorStyle: TextStyle(
                                   fontSize: 14.0,
                                   fontFamily: 'Montserrat-Bold'
                               ),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(25)),
-                              hintText: "Enter Password",
-                              suffixIcon: IconButton(
-                                  icon:
-                                  Icon(
-                                    _isObscure ? Icons.visibility : Icons.visibility_off,
-                                    color: Color(0xffD8B261),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      _isObscure = !_isObscure;
-                                    });
-                                  })),
+                              border: InputBorder.none,
+                              prefixIcon: Icon(Icons.email_outlined,size:20,color: Colors.black38,),
+                              hintText: 'Email',
+                            ),
+                            onChanged: (value){
+                              email = value;
+                            },
+                            validator: (value){
+                              // email = value!;
+                              if(value!.isEmpty){
+                                return "email is required";
+                              }else if(!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)){
+                                return "Please Enter a correct email";
+                              }else
+                                return null;
+                            },
+                          ),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(20, 20,20,0),
-                        child: TextFormField(
-                          style: TextStyle(
-                              fontFamily: 'Montserrat-Bold'
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        child: DottedBorder(
+                          borderType: BorderType.RRect,
+                          radius: Radius.circular(25),
+                          padding: EdgeInsets.only(left: 20, right: 20, top:6, bottom: 6),
+                          color: Colors.grey,
+                          dashPattern: [10,5,10,5,10,5],
+                          child: TextFormField(
+                            style: TextStyle(
+                                fontFamily: 'Montserrat-Bold'
+                            ),
+                            decoration: InputDecoration(
+                                focusColor: Colors.black38,
+                                hintStyle: TextStyle(color: Colors.black38),
+                                errorStyle: TextStyle(
+                                    fontSize: 14.0,
+                                    fontFamily: 'Montserrat-Bold'
+                                ),
+                                border: InputBorder.none,
+                                hintText: 'Password',
+                                prefixIcon: Icon(Icons.lock_outline,size:20,color: Colors.black38,),
+                                suffixIcon: IconButton(
+                                    icon:
+                                    Icon(
+                                      _isObscure ? Icons.visibility : Icons.visibility_off,
+                                      color: Colors.black38,
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        _isObscure = !_isObscure;
+                                      });
+                                    })
+                            ),
+                            onChanged: (value){
+                              pass = value;
+                            },
+                            validator: (value){
+                              // pass = value!;
+                              if(value!.isEmpty){
+                                return "Password is required!";
+                              }else
+                                return null;
+                            },
+                            obscureText: _isObscure,
+
                           ),
-                          obscureText: _confirmObscure,
+                        ),
+                      ),
+                      Padding(
+
                           // validator: (value){
                           //
                           //   if(value!.isEmpty){
@@ -329,21 +348,28 @@ class _RegisterState extends State<Register> {
                           //   }else if(pass == value)
                           //     return "Password dose not equal confirm password";
                           // },
-                          decoration: InputDecoration(
-                              hintStyle: TextStyle(color: Color(0xffD8B261)),
-                              errorStyle: TextStyle(
-                                  fontSize: 14.0,
+                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          child: DottedBorder(
+                            borderType: BorderType.RRect,
+                            radius: Radius.circular(25),
+                            padding: EdgeInsets.only(left: 20, right: 20, top:6, bottom: 6),
+                            color: Colors.grey,
+                            dashPattern: [10,5,10,5,10,5],
+                            child: TextFormField(
+                              style: TextStyle(
                                   fontFamily: 'Montserrat-Bold'
                               ),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(25)),
-                              hintText: 'Confirm your Password',
+                              decoration: InputDecoration(
+                                  focusColor: Colors.black38,
+                                  hintStyle: TextStyle(color: Colors.black38),
+                                  border: InputBorder.none,
+                                  hintText: 'Confirm Password',
 
                               suffixIcon: IconButton(
                                   icon:
                                   Icon(
                                     _confirmObscure ? Icons.visibility : Icons.visibility_off,
-                                    color: Color(0xffD8B261),
+                                    color: Colors.black38,
                                   ),
                                   onPressed: () {
                                     setState(() {
@@ -351,7 +377,7 @@ class _RegisterState extends State<Register> {
                                     });
                                   })),
                         ),
-                      ),
+                      ),)
                     ],
                   ),
                 ),
@@ -360,7 +386,7 @@ class _RegisterState extends State<Register> {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal:20, vertical: 30),
                   decoration: BoxDecoration(
-                      color: Color(0xffD8B261),
+                      color: Colors.black87,
                       borderRadius: BorderRadius.circular(30)
                   ),
                   child: TextButton(
@@ -388,7 +414,7 @@ class _RegisterState extends State<Register> {
                         print(e);
                       }
                     },
-                    child: Text('Create account',
+                    child: Text('SIGN UP',
                       style: TextStyle(
                           color: Color(0xffffffff),
                           fontSize: 20,
@@ -398,9 +424,32 @@ class _RegisterState extends State<Register> {
                       ),
                     ),),
                 ),
+                Row(
+                  children: [
+                    Text('Already have account? ',
+                        style:TextStyle(
+                      color: Colors.black38
+                    )),
+                    TextButton(
+                      onPressed: () {
+
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+
+                        ),
+                        child: Text('Login',
+                        style:  TextStyle(
+
+                        ),
+                        ),
+                      ),
+                    )
+                  ],
+                )
               ],
             ),
-          )),
+          )
     );
   }
 }
