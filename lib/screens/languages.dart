@@ -1,3 +1,4 @@
+import 'package:flowshipper/screens/drawer.dart';
 import 'package:flowshipper/screens/intro.dart';
 import 'package:flowshipper/screens/welcome.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,8 +13,10 @@ class Languages extends StatelessWidget {
     return Directionality(
       textDirection: ChooseLang.lang? TextDirection.rtl : TextDirection.ltr,
       child: Scaffold(
+        drawer: DrawerScreen(),
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
           leading: BackButtonIcon(),
           title: Text(ChooseLang.lang? 'اختر لغة':'Choose Language'),
         ),
@@ -99,14 +102,12 @@ class ChooseLang extends StatelessWidget {
                     ),
                     Text(text,
                     style: TextStyle(
-                      color:Colors.black54,
                       fontWeight: FontWeight.bold
                     ),
                     ),
                   ],
                 ),
                 Icon(Icons.arrow_forward_outlined,
-                color: Colors.black87,
                 ),
               ],
             ),

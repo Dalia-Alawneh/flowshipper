@@ -1,3 +1,4 @@
+import 'package:flowshipper/main.dart';
 import 'package:flowshipper/screens/languages.dart';
 import 'package:flowshipper/screens/register.dart';
 import 'package:flowshipper/screens/tapscreen.dart';
@@ -28,7 +29,8 @@ class _IntroScreenState extends State<IntroScreen>{
       new Slide(
         title: ChooseLang.lang? 'اختر موقعك' : "Choose Your Location",
         styleTitle: TextStyle(
-          color: Colors.black87,
+          color: MyApp.of(context)!.myThemeMode==ThemeMode.light?
+          Colors.black87: Colors.white,
           fontSize: 20.0,
           fontWeight: FontWeight.bold,
         ),
@@ -40,13 +42,12 @@ class _IntroScreenState extends State<IntroScreen>{
           styleDescription: const TextStyle(
             wordSpacing: 2,
             height: 1.5,
-            color: Colors.black54,
             fontSize: 18.0,
             fontStyle: FontStyle.normal,
             fontFamily: 'Raleway',),
 
         pathImage: "images/1.jpeg",
-        backgroundColor: Colors.white,
+
       ),
     );
     slides.add(
@@ -54,7 +55,6 @@ class _IntroScreenState extends State<IntroScreen>{
 
         title: ChooseLang.lang? 'التوصيل الى باب بيتك' :"Deliver To Your Door",
         styleTitle: TextStyle(
-          color: Colors.black87,
           fontSize: 20.0,
           fontWeight: FontWeight.bold,
         ),
@@ -68,13 +68,12 @@ class _IntroScreenState extends State<IntroScreen>{
         styleDescription: const TextStyle(
           wordSpacing: 2,
           height: 1.5,
-          color: Colors.black54,
           fontSize: 18.0,
           fontStyle: FontStyle.normal,
           fontFamily: 'Raleway',),
 
         pathImage: "images/2.jpeg",
-        backgroundColor: Colors.white,
+
       ),
     );
     slides.add(
@@ -82,7 +81,7 @@ class _IntroScreenState extends State<IntroScreen>{
 
         title: ChooseLang.lang? 'الدفع عند التوصيل' : "Pay Securely After Delivery",
         styleTitle: TextStyle(
-          color: Colors.black87,
+
           fontSize: 20.0,
           fontWeight: FontWeight.bold,
         ),
@@ -120,7 +119,6 @@ class _IntroScreenState extends State<IntroScreen>{
     return Directionality(
       textDirection: ChooseLang.lang? TextDirection.rtl: TextDirection.ltr,
       child: Scaffold(
-        backgroundColor: Colors.white,
         body: SafeArea(
             child:Column(
               children: [
