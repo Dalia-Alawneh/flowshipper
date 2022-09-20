@@ -34,6 +34,7 @@ dev_dependencies:
   email_auth:
   firebase_storage:
   easy_localization: ^3.0.1
+  provider:
 
 flutter:
 

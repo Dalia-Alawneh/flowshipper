@@ -161,7 +161,6 @@ class _RegisterState extends State<Register> {
                                     ),
                                     decoration: InputDecoration(
                                       focusColor: Color(0xffD8B261),
-                                      hintStyle: TextStyle(color: Colors.black38),
                                       errorStyle: TextStyle(
                                           fontSize: 14.0,
                                           fontFamily: 'Montserrat-Bold'
@@ -199,7 +198,6 @@ class _RegisterState extends State<Register> {
                                       ),
                                       decoration: InputDecoration(
                                         focusColor: Color(0xffD8B261),
-                                        hintStyle: TextStyle(color: Colors.black38),
                                         errorStyle: TextStyle(
                                             fontSize: 14.0,
                                             fontFamily: 'Montserrat-Bold'
@@ -239,8 +237,7 @@ class _RegisterState extends State<Register> {
 
                                 decoration: InputDecoration(
                                   focusColor: Colors.black38,
-                                  prefixIcon: Icon(Icons.phone, size:20,color: Colors.black38,),
-                                  hintStyle: TextStyle(color: Colors.black38),
+                                  prefixIcon: Icon(Icons.phone, size:20),
                                   border: InputBorder.none,
                                   hintText:ChooseLang.lang? 'رقم الهاتف':'Phone number',
                               ),
@@ -271,13 +268,12 @@ class _RegisterState extends State<Register> {
                               ),
                               decoration: InputDecoration(
                                 focusColor: Color(0xffD8B261),
-                                hintStyle: TextStyle(color: Colors.black38),
                                 errorStyle: TextStyle(
                                     fontSize: 14.0,
                                     fontFamily: 'Montserrat-Bold'
                                 ),
                                 border: InputBorder.none,
-                                prefixIcon: Icon(Icons.email_outlined,size:20,color: Colors.black38,),
+                                prefixIcon: Icon(Icons.email_outlined,size:20,),
                                 hintText: ChooseLang.lang? 'البريد الالكتروني':'Email',
                               ),
                               onChanged: (value){
@@ -309,19 +305,18 @@ class _RegisterState extends State<Register> {
                               ),
                               decoration: InputDecoration(
                                   focusColor: Colors.black38,
-                                  hintStyle: TextStyle(color: Colors.black38),
                                   errorStyle: TextStyle(
                                       fontSize: 14.0,
                                       fontFamily: 'Montserrat-Bold'
                                   ),
                                   border: InputBorder.none,
                                   hintText: ChooseLang.lang?'كلمة المرور' :'Password',
-                                  prefixIcon: Icon(Icons.lock_outline,size:20,color: Colors.black38,),
+                                  prefixIcon: Icon(Icons.lock_outline,size:20,),
                                   suffixIcon: IconButton(
                                       icon:
                                       Icon(
                                         _isObscure ? Icons.visibility : Icons.visibility_off,
-                                        color: Colors.black38,
+
                                       ),
                                       onPressed: () {
                                         setState(() {
@@ -367,7 +362,6 @@ class _RegisterState extends State<Register> {
                                 ),
                                 decoration: InputDecoration(
                                     focusColor: Colors.black38,
-                                    hintStyle: TextStyle(color: Colors.black38),
                                     border: InputBorder.none,
                                     hintText: ChooseLang.lang? 'تأكيد كلمة المرور' : 'Confirm Password',
 
@@ -375,7 +369,7 @@ class _RegisterState extends State<Register> {
                                     icon:
                                     Icon(
                                       _confirmObscure ? Icons.visibility : Icons.visibility_off,
-                                      color: Colors.black38,
+
                                     ),
                                     onPressed: () {
                                       setState(() {
@@ -437,7 +431,7 @@ class _RegisterState extends State<Register> {
                       children: [
                         Text(ChooseLang.lang? 'لديك حساب بالفعل؟': 'Already have account? ',
                             style:TextStyle(
-                          color: Colors.black38
+
                         )),
                         TextButton(
                           onPressed: () {

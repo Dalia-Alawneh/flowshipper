@@ -1,9 +1,21 @@
+import 'package:flowshipper/main.dart';
+import 'package:flowshipper/screens/languages.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:dotted_border/dotted_border.dart';
 
-class DrawerScreen extends StatelessWidget {
+import 'ChangeThemeButton.dart';
+
+
+class DrawerScreen extends StatefulWidget {
   const DrawerScreen({super.key});
+
+  @override
+  State<DrawerScreen> createState() => _DrawerScreenState();
+}
+
+class _DrawerScreenState extends State<DrawerScreen> {
+  bool value = false;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -76,6 +88,7 @@ class DrawerScreen extends StatelessWidget {
               ),
 
             ),
+            ChangeThemeButtonWidget(),
             // Column(
             //   children: [
             //     Row(
@@ -100,20 +113,26 @@ class DrawerScreen extends StatelessWidget {
             //   ],
             // ),
 
-            ListTile(
-              leading: Icon(FontAwesomeIcons.moon, size: 20,),
-              iconColor: Colors.white,
-              title: Text('Theme',
-                style: TextStyle(
-                  color: Colors.white,
-                ),),
-              onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => ),
-                // );
-              },
-            ),
+            // ListTile(
+            //
+            //   leading: Icon(FontAwesomeIcons.moon, size: 20,),
+            //   iconColor: Colors.white,
+            //   title: Text('Theme',
+            //     style: TextStyle(
+            //       color: Colors.white,
+            //     ),),
+            //   onTap: () {
+            //
+            //     setState((){
+            //       MyApp.of(context)?.myThemeMode= ThemeMode.light;
+            //     });
+            //     Navigator.pop(context);
+            //     // Navigator.push(
+            //     //   context,
+            //     //   MaterialPageRoute(builder: (context) => ),
+            //     // );
+            //   },
+            // ),
             ListTile(
               leading: Icon(FontAwesomeIcons.globe, size: 20,),
               iconColor: Colors.white,
@@ -221,6 +240,7 @@ class DrawerScreen extends StatelessWidget {
                   color: Colors.white,
                 ),),
               onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Languages()));
                 // showAlertDialog(context);
               },
             ),

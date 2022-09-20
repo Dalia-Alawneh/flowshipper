@@ -1,9 +1,11 @@
 
+import 'package:flowshipper/main.dart';
 import 'package:flowshipper/screens/languages.dart';
 import 'package:flowshipper/screens/register.dart';
+import 'package:flowshipper/screens/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flowshipper/screens/drawer.dart';
-
+import 'theme.dart';
 import 'login.dart';
 
 class TapScreen extends StatefulWidget {
@@ -43,7 +45,9 @@ class _TapScreenState extends State<TapScreen> {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(tapped ? 'images/bgdark.jpeg': 'images/bgcolor.jpeg'))
+                      image: AssetImage(
+                          ThemeProvider().isDarkMode?'images/darkmodebg1.png':
+                          tapped ? 'images/bgdark.jpeg': 'images/bgcolor.jpeg'))
               ),
               child: ListView(
                 children:[
@@ -64,7 +68,8 @@ class _TapScreenState extends State<TapScreen> {
                             ' maiors incidunt mais esse',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: Colors.black38,
+
+
                               fontWeight: FontWeight.bold
                           ),),
                       ),
@@ -76,9 +81,8 @@ class _TapScreenState extends State<TapScreen> {
                               tapped = !tapped;
                         });
                           },
-                          labelColor: Colors.black87,
-                          indicatorColor: Color(0xff2b2b2b),
-                          unselectedLabelColor: Colors.black38,
+
+
                           labelStyle: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold
@@ -114,13 +118,16 @@ class _TapScreenState extends State<TapScreen> {
                       Text(
                         'Copyright',
                             style:TextStyle(
-                              color: Colors.black38,
+                              color:MyApp.of(context)?.myThemeMode== ThemeMode.light?
+                              Colors.black38:Color(0xffd5d5d5),
 
                             )),
-                      Icon(Icons.copyright_sharp,size: 16, color: Colors.black38,),
+                      Icon(Icons.copyright_sharp,size: 16, color: MyApp.of(context)?.myThemeMode== ThemeMode.light?
+                      Colors.black38:Color(0xffd5d5d5),),
                       Text('web Technology Ltd',
                       style: TextStyle(
-                        color: Colors.black38,
+                        color: MyApp.of(context)?.myThemeMode== ThemeMode.light?
+                        Colors.black38:Color(0xffd5d5d5),
                       ),
                       )
                     ],

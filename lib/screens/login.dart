@@ -48,13 +48,12 @@ class _LoginState extends State<Login> {
                       ),
                       decoration: InputDecoration(
                         focusColor: Color(0xffD8B261),
-                        hintStyle: TextStyle(color: Colors.black38),
                         errorStyle: TextStyle(
                             fontSize: 14.0,
                             fontFamily: 'Montserrat-Bold'
                         ),
                         border: InputBorder.none,
-                        prefixIcon: Icon(Icons.email_outlined,size:20,color: Colors.black38,),
+                        prefixIcon: Icon(Icons.email_outlined,size:20,),
                         hintText: ChooseLang.lang? 'البريد الالكتروني':'Email',
                       ),
                       onChanged: (value){
@@ -86,19 +85,18 @@ class _LoginState extends State<Login> {
                   ),
                   decoration: InputDecoration(
                     focusColor: Colors.black38,
-                    hintStyle: TextStyle(color: Colors.black38),
                     errorStyle: TextStyle(
                         fontSize: 14.0,
                         fontFamily: 'Montserrat-Bold'
                     ),
                     border: InputBorder.none,
                       hintText:ChooseLang.lang? 'كلمة المرور' : 'Password',
-                      prefixIcon: Icon(Icons.lock_outline,size:20,color: Colors.black38,),
+                      prefixIcon: Icon(Icons.lock_outline,size:20),
                       suffixIcon: IconButton(
                           icon:
                           Icon(
                             _isObscure ? Icons.visibility : Icons.visibility_off,
-                            color: Colors.black38,
+
                           ),
                           onPressed: () {
                             setState(() {
@@ -124,7 +122,7 @@ class _LoginState extends State<Login> {
                 Container(
                   margin: EdgeInsets.only(top: 15),
                   decoration: BoxDecoration(
-                      color: Color(0xff3b3b3b),
+                      color: Color(0xff282828),
                       borderRadius: BorderRadius.circular(30)
                   ),
                   child: TextButton(
@@ -165,7 +163,6 @@ class _LoginState extends State<Login> {
                       // fontWeight: FontWeight.bold,
                       fontFamily: 'Montserrat-bold',
                       fontSize: 16,
-                      color: Colors.black54,
                     ),),
                 )
               ],
