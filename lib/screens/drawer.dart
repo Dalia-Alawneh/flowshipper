@@ -27,7 +27,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               fit: BoxFit.cover),
         ),
         child:  ListView(
-          padding: EdgeInsets.only(left: 20),
+          padding: EdgeInsets.only(left: 20,),
           children: [
             DrawerHeader(
               child:Row(
