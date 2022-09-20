@@ -1,23 +1,23 @@
-import 'package:flowshipper/screens/home.dart';
 import 'package:flowshipper/screens/intro.dart';
 import 'package:flowshipper/screens/languages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:email_auth/email_auth.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:email_auth/email_auth.dart';
+
+import 'drawer.dart';
+
 
 class CodeScreen extends StatefulWidget {
-  final String phone;
-  CodeScreen({required this.phone});
+  const CodeScreen({Key? key,}) : super(key: key);
   @override
-  State<CodeScreen> createState() => _CodeScreenState();
+  _CodeScreenState createState() => _CodeScreenState();
 }
 
 class _CodeScreenState extends State<CodeScreen> {
-  late String _verficationCode;
+
   TextEditingController newTextEditingController = TextEditingController();
   FocusNode focusNode = FocusNode();
 
@@ -31,6 +31,11 @@ class _CodeScreenState extends State<CodeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
+      drawer: DrawerScreen(),
       body: SafeArea(
         child: Container(
             constraints: BoxConstraints.expand(),
@@ -70,15 +75,7 @@ class _CodeScreenState extends State<CodeScreen> {
                       length: 4,
                       controller: newTextEditingController,
                       focusNode: focusNode,
-
-                      onCompleted: (result) async{
-                        await FirebaseAuth.instance.signInWithCredential(
-                            PhoneAuthProvider.credential(verificationId: _verficationCode, smsCode: result)).
-                        then((value) async{
-                          if(value.user !=null){
-                            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Home()), (route) => false);
-                          }
-                        });
+                      onCompleted: (result) {
                         print(result);
                       }, appContext: context, onChanged: (String value) {  },
                     ),
@@ -116,50 +113,5 @@ class _CodeScreenState extends State<CodeScreen> {
 
       ),
     );
-  }
-  _verifyPhone() async {
-    await FirebaseAuth.instance.verifyPhoneNumber(
-        phoneNumber: '+97${widget.phone}',
-        verificationCompleted: (PhoneAuthCredential credential) async {
-          await FirebaseAuth.instance
-              .signInWithCredential(credential)
-              .then((value) async {
-            if (value.user != null) {
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (context) => Home()),
-                      (route) => false);
-            }
-          });
-        },
-        verificationFailed: (FirebaseAuthException e) {
-          print(e.message);
-        },
-        codeSent: (String? verficationID, int? resendToken) {
-          setState(() {
-            _verficationCode = verficationID!;
-          });
-        },
-        codeAutoRetrievalTimeout: (String verificationID) {
-          setState(() {
-            _verficationCode = verificationID;
-          });
-        },
-        timeout: Duration(seconds: 120));
-    ConfirmationResult confirmationResult = await FirebaseAuth.instance.signInWithPhoneNumber('+97${widget.phone}',
-      // RecaptchaVerifier(
-      //   container: 'recaptcha',
-      //   onSuccess: () => print('reCAPTCHA Completed!'),
-      //   onError: (FirebaseAuthException error) => print(error),
-      //   onExpired: () => print('reCAPTCHA Expired!'), ,
-       //)
-    );
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _verifyPhone();
   }
 }
