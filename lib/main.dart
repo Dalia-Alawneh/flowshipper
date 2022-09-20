@@ -1,15 +1,17 @@
 import 'package:flowshipper/screens/code_screen.dart';
-import 'package:flowshipper/screens/login.dart';
-import 'package:flowshipper/screens/register.dart';
+import 'package:flowshipper/screens/drawer.dart';
 import 'package:flowshipper/screens/sign_in.dart';
+import 'package:flowshipper/screens/tapscreen.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/welcome.dart';
-import 'screens/languages.dart';
+import 'package:easy_localization/easy_localization.dart';
+
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
         theme: ThemeData(
             appBarTheme: AppBarTheme(
@@ -28,7 +31,16 @@ class MyApp extends StatelessWidget {
               titleTextStyle: TextStyle(color:Colors.black54,fontSize: 20, fontWeight: FontWeight.bold),
                 iconTheme: IconThemeData(color: Colors.black87)
         )),
-      home: CodeScreen(),
+      home: SignIn(),
     );
   }
 }
+
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:flutter/material.dart';
+//
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+//   runApp(App());
+// }

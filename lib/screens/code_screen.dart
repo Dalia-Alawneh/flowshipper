@@ -7,10 +7,13 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:email_auth/email_auth.dart';
 
-class CodeScreen extends StatefulWidget {
+import 'drawer.dart';
 
+
+class CodeScreen extends StatefulWidget {
+  const CodeScreen({Key? key,}) : super(key: key);
   @override
-  State<CodeScreen> createState() => _CodeScreenState();
+  _CodeScreenState createState() => _CodeScreenState();
 }
 
 class _CodeScreenState extends State<CodeScreen> {
@@ -28,6 +31,11 @@ class _CodeScreenState extends State<CodeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
+      drawer: DrawerScreen(),
       body: SafeArea(
         child: Container(
             constraints: BoxConstraints.expand(),
