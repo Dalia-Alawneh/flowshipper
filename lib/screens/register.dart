@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'code_screen.dart';
 import 'tapscreen.dart';
 import 'languages.dart';
 class Register extends StatefulWidget {
@@ -405,7 +406,7 @@ class _RegisterState extends State<Register> {
                             'password' : pass
                           });
                           print(phone);
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CodeScreen(phone: phone)));
                         }
                         // if(_formKey.currentState!.validate()){
                         //

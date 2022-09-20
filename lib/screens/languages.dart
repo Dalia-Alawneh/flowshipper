@@ -1,6 +1,8 @@
+import 'package:flowshipper/main.dart';
 import 'package:flowshipper/screens/intro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:localize_and_translate/localize_and_translate.dart';
 class Languages extends StatelessWidget {
   const Languages({Key? key}) : super(key: key);
 
@@ -8,7 +10,8 @@ class Languages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         leading: BackButtonIcon(),
         title: Text('Choose Language'),
       ),
@@ -56,7 +59,8 @@ class ChooseLang extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>IntroScreen()));
+              MyApp.of(context)!.changeTheme(ThemeMode.dark);
+             // Navigator.push(context, MaterialPageRoute(builder: (context)=>IntroScreen()));
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,14 +75,12 @@ class ChooseLang extends StatelessWidget {
                     ),
                     Text(text,
                     style: TextStyle(
-                      color:Colors.black54,
                       fontWeight: FontWeight.bold
                     ),
                     ),
                   ],
                 ),
                 Icon(Icons.arrow_forward_outlined,
-                color: Colors.black87,
                 ),
               ],
             ),
