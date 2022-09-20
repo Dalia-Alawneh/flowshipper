@@ -31,16 +31,7 @@ class MyApp extends StatelessWidget {
               titleTextStyle: TextStyle(color:Colors.black54,fontSize: 20, fontWeight: FontWeight.bold),
                 iconTheme: IconThemeData(color: Colors.black87)
         )),
-      home: SignIn(),
+      home: DrawerScreen(),
     );
   }
 }
-
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:flutter/material.dart';
-//
-// void main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp();
-//   runApp(App());
-// }
