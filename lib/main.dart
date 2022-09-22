@@ -1,4 +1,5 @@
 import 'package:flowshipper/screens/code_screen.dart';
+import 'package:flowshipper/screens/home.dart';
 import 'package:flowshipper/screens/languages.dart';
 import 'package:flowshipper/screens/login.dart';
 import 'package:flowshipper/screens/register.dart';
@@ -34,10 +35,11 @@ class _MyAppState extends State<MyApp> {
       final themeProvider = Provider.of<ThemeProvider>(context);
 
       return MaterialApp(
+        debugShowCheckedModeBanner: false,
         themeMode: themeProvider.themeMode,
         theme: MyTheme.lightTheme,
         darkTheme: MyTheme.darkTheme,
-        home: Languages(),
+        home: Home(),
       );
     },
   );

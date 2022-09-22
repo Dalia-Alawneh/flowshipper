@@ -8,6 +8,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:email_auth/email_auth.dart';
 
 import 'drawer.dart';
+import 'flowersapi.dart';
 
 
 class CodeScreen extends StatefulWidget {
@@ -20,7 +21,22 @@ class _CodeScreenState extends State<CodeScreen> {
 
   TextEditingController newTextEditingController = TextEditingController();
   FocusNode focusNode = FocusNode();
+  void getFlowerData() async{
+    try {
+      var data = await Flowers().getData();
+      //13. We can't await in a setState(). So you have to separate it out into two steps.
+      print(data);
 
+    } catch (e) {
+      print(e);
+    }
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getFlowerData();
+  }
   @override
   void dispose() {
     newTextEditingController.dispose();

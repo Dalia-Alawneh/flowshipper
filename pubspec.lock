@@ -225,7 +225,7 @@ packages:
     source: hosted
     version: "10.2.1"
   http:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -372,7 +372,7 @@ packages:
     source: hosted
     version: "6.0.3"
   shared_preferences:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: shared_preferences
       url: "https://pub.dartlang.org"

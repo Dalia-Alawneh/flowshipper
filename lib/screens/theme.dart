@@ -20,6 +20,10 @@ class ThemeProvider extends ChangeNotifier{
 }
 class MyTheme{
   static final darkTheme=ThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedItemColor: Colors.green[900],
+        unselectedItemColor: Color(0xffc4c4c4)
+    ),
       brightness: Brightness.dark,
       colorScheme: ColorScheme.dark(),
       hintColor: Color(0xffdcdcdc),
@@ -27,6 +31,10 @@ class MyTheme{
     tabBarTheme: TabBarTheme(unselectedLabelColor: Color(0xffd5d5d5)),
   );
   static final lightTheme=ThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      selectedItemColor: Colors.green[900],
+      unselectedItemColor: Color(0xffafafaf)
+    ),
     colorScheme: ColorScheme.light(),
     tabBarTheme: TabBarTheme(unselectedLabelColor:Colors.black38,labelColor: Colors.black54),
       indicatorColor: Color(0xff4e4e4e),

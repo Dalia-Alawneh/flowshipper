@@ -35,6 +35,8 @@ dev_dependencies:
   firebase_storage:
   easy_localization: ^3.0.1
   provider:
+  http:
+  shared_preferences:
 
 flutter:
 

@@ -1,13 +1,34 @@
 import 'package:flowshipper/screens/drawer.dart';
+import 'package:flowshipper/screens/flowersapi.dart';
 import 'package:flowshipper/screens/intro.dart';
 import 'package:flowshipper/screens/welcome.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Languages extends StatelessWidget {
+class Languages extends StatefulWidget {
   const Languages({Key? key}) : super(key: key);
 
+  @override
+  State<Languages> createState() => _LanguagesState();
+}
 
+class _LanguagesState extends State<Languages> {
+  void getFlowerData() async{
+    try {
+      var data = await Flowers().getData();
+      //13. We can't await in a setState(). So you have to separate it out into two steps.
+      print(data);
+
+    } catch (e) {
+      print(e);
+    }
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getFlowerData();
+  }
   @override
   Widget build(BuildContext context) {
     return Directionality(
