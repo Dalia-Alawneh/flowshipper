@@ -1,8 +1,6 @@
 import 'package:flowshipper/main.dart';
 import 'package:flowshipper/screens/languages.dart';
-import 'package:flowshipper/screens/register.dart';
 import 'package:flowshipper/screens/tapscreen.dart';
-import 'package:flowshipper/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:slide_to_act/slide_to_act.dart';

@@ -46,8 +46,10 @@ class _TapScreenState extends State<TapScreen> {
                   image: DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage(
-                          ThemeProvider().isDarkMode?'images/darkmodebg1.png':
-                          tapped ? 'images/bgdark.jpeg': 'images/bgcolor.jpeg'))
+                          ThemeProvider().isDarkMode?
+                          'images/darkmodebg1.png' :  tapped ?
+                          'images/bgdark.jpeg': 'images/bgcolor.jpeg'
+                         ))
               ),
               child: ListView(
                 children:[

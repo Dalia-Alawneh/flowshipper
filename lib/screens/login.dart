@@ -129,19 +129,8 @@ class _LoginState extends State<Login> {
                     style: TextButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 10,horizontal: 100)
                     ),
-                    onPressed: () async{
-                      try{
-                        final user = await _auth.signInWithEmailAndPassword(email: email, password: pass);
-                        if(user != null){
-
+                    onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>Languages()));
-                        }
-                        // if(_formKey.currentState!.validate()){
-                        //
-                        //     }
-                        }catch(e){
-                        print(e);
-                      }
                         },
                     child: Text(   ChooseLang.lang? 'تسجيل الدخول' : 'SIGN IN',
                       style: TextStyle(

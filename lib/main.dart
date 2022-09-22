@@ -1,6 +1,10 @@
+import 'package:flowshipper/screens/address.dart';
+import 'package:flowshipper/screens/changepassword.dart';
 import 'package:flowshipper/screens/code_screen.dart';
+import 'package:flowshipper/screens/intro.dart';
 import 'package:flowshipper/screens/languages.dart';
 import 'package:flowshipper/screens/login.dart';
+import 'package:flowshipper/screens/profile.dart';
 import 'package:flowshipper/screens/register.dart';
 import 'package:flowshipper/screens/drawer.dart';
 import 'package:flowshipper/screens/sign_in.dart';
@@ -37,17 +41,8 @@ class _MyAppState extends State<MyApp> {
         themeMode: themeProvider.themeMode,
         theme: MyTheme.lightTheme,
         darkTheme: MyTheme.darkTheme,
-        home: Languages(),
+        home: ProfileScreen(),
       );
     },
   );
 }
-
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:flutter/material.dart';
-//
-// void main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp();
-//   runApp(App());
-// }
