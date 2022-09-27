@@ -1,9 +1,12 @@
 import 'package:flowshipper/screens/code_screen.dart';
+import 'package:flowshipper/screens/order_details.dart';
+import 'package:flowshipper/screens/productSlider.dart';
 import 'package:flowshipper/screens/tapscreen.dart';
 import 'package:flowshipper/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'drawer.dart';
+import 'flower_page.dart';
 import 'languages.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'reusable_bar.dart';
@@ -179,43 +182,48 @@ class FlowerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        DottedBorder(
-            borderType: BorderType.RRect,
-            padding: EdgeInsets.only(left: 20, right: 20, top:6, bottom: 6),
-            color: Color(0xffa1a1a1),
-            radius: Radius.circular(12),
-            dashPattern: [10,5,10,5,10,5],
-            child:Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image.asset(imgPath,width: 100,),
-                Row(
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderDetails()));
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          DottedBorder(
+              borderType: BorderType.RRect,
+              padding: EdgeInsets.only(left: 20, right: 20, top:6, bottom: 6),
+              color: Color(0xffa1a1a1),
+              radius: Radius.circular(12),
+              dashPattern: [10,5,10,5,10,5],
+              child:Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.asset(imgPath,width: 100,),
+                  Row(
 
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('$price\$', style: TextStyle(color: Colors.red),),
-                    SizedBox(width: 15,),
-                    Icon(Icons.shopping_bag_outlined, size: 17,)
-                  ],
-                )
-              ],
-            ),
-        ),
-        SizedBox(height: 10,),
-        Text('$shopName / $rate ⭐', style: TextStyle(fontWeight: FontWeight.bold),),
-        SizedBox(height: 10,),
-        Text('Cras blandit conseqat..'),
-        SizedBox(height: 10,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-          Text('$time min-Delivery  ', style: TextStyle(fontSize: 11),),
-          Text('$delPrice\$', style: TextStyle(fontSize: 11 ,color: Colors.red)),
-        ],)
-      ],
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('$price\$', style: TextStyle(color: Colors.red),),
+                      SizedBox(width: 15,),
+                      Icon(Icons.shopping_bag_outlined, size: 17,)
+                    ],
+                  )
+                ],
+              ),
+          ),
+          SizedBox(height: 10,),
+          Text('$shopName / $rate ⭐', style: TextStyle(fontWeight: FontWeight.bold),),
+          SizedBox(height: 10,),
+          Text('Cras blandit conseqat..'),
+          SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+            Text('$time min-Delivery  ', style: TextStyle(fontSize: 11),),
+            Text('$delPrice\$', style: TextStyle(fontSize: 11 ,color: Colors.red)),
+          ],)
+        ],
+      ),
     );
   }
 }

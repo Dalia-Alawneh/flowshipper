@@ -1,7 +1,10 @@
 import 'package:flowshipper/screens/code_screen.dart';
+import 'package:flowshipper/screens/flower_page.dart';
 import 'package:flowshipper/screens/home.dart';
 import 'package:flowshipper/screens/languages.dart';
 import 'package:flowshipper/screens/login.dart';
+import 'package:flowshipper/screens/order_details.dart';
+import 'package:flowshipper/screens/productSlider.dart';
 import 'package:flowshipper/screens/register.dart';
 import 'package:flowshipper/screens/drawer.dart';
 import 'package:flowshipper/screens/sign_in.dart';
@@ -39,7 +42,7 @@ class _MyAppState extends State<MyApp> {
         themeMode: themeProvider.themeMode,
         theme: MyTheme.lightTheme,
         darkTheme: MyTheme.darkTheme,
-        home: Home(),
+        home: Home()
       );
     },
   );

@@ -9,14 +9,17 @@ class Flowers{
   String url = 'http://127.0.0.1:8000/api/flowers';
   Uri _url = Uri.parse('http://127.0.0.1:8000/api/flowers');
   var _data;
-   FirebaseAuth auth= FirebaseAuth.instance;
+  Map<String, String> headers = {
+    HttpHeaders.contentTypeHeader: 'application/json',
+    HttpHeaders.acceptHeader: 'application/json',
+    HttpHeaders.authorizationHeader: 'Token f1cf649a-f1b7-4c23-a039-7a08a8f88d28'
+  };
+
    Future getData()async{
-     String token = await auth.currentUser!.getIdToken();
-     print(token);
-     var response =  await http.get(Uri.parse('http://127.0.0.1:8000/api/flowers'),
-         headers: {HttpHeaders.contentTypeHeader: "application/json",
-           HttpHeaders.authorizationHeader: "Bearer $token"});
-     print(response.body);
+     var response = await http.get(
+       Uri.parse('http://127.0.0.1:8000/api/flowers'),
+       headers: headers,
+     );
    }
 
 }
